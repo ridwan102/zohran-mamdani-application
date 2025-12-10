@@ -304,6 +304,17 @@ section {
     color: var(--text-color);
 }
 
+.experience-highlights ul {
+    margin-top: 0.5rem;
+    margin-left: 2rem;
+    list-style-type: circle;
+}
+
+.experience-highlights ul li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
 /* Video Container */
 .video-container {
     position: relative;
