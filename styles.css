@@ -247,7 +247,7 @@ section {
 
 /* Experience Section */
 .experience-section {
-    background-color: var(--white);
+    background-color: var(--light-bg);
 }
 
 .experience-content {
