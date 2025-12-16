@@ -15,6 +15,7 @@
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
                     <a href="#experience">Experience</a>
+                    <a href="#endorsements">Endorsements</a>
                     <a href="#contact">Contact</a>
                 </nav>
                 <div class="logo">
@@ -230,6 +231,54 @@
         </div>
     </section>
 
+    <!-- Endorsements Section -->
+    <section id="endorsements" class="endorsements-section">
+        <div class="container">
+            <h2 class="section-title">Endorsements</h2>
+            <div class="endorsements-grid" id="endorsementsList">
+                <!-- Sample endorsements - replace with real ones -->
+                <div class="endorsement-card">
+                    <div class="endorsement-content">
+                        <h3 class="endorser-name">Sample Name</h3>
+                        <p class="endorser-title">Title, Organization</p>
+                    </div>
+                </div>
+                <div class="endorsement-card">
+                    <div class="endorsement-content">
+                        <h3 class="endorser-name">Another Endorser</h3>
+                        <p class="endorser-title">Position, Company</p>
+                    </div>
+                </div>
+                <div class="endorsement-card">
+                    <div class="endorsement-content">
+                        <h3 class="endorser-name">Third Endorser</h3>
+                        <p class="endorser-title">Role, Institution</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Endorsement Form -->
+            <div class="endorsement-form-container">
+                <h3 class="form-title">Add Your Endorsement</h3>
+                <form id="endorsementForm" class="endorsement-form">
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="occupation">Title/Position</label>
+                        <input type="text" id="occupation" name="occupation" placeholder="Your title or position (optional)">
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization" placeholder="Your organization (optional)">
+                    </div>
+                    <button type="submit" class="cta-button">Submit Endorsement</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Why Transition Team Section -->
     <section class="why-section">
         <div class="container">
@@ -281,11 +330,53 @@
                     <a href="#about">About</a>
                     <a href="#skills">Skills</a>
                     <a href="#experience">Experience</a>
+                    <a href="#endorsements">Endorsements</a>
                     <a href="#contact">Contact</a>
                 </nav>
                 <p class="footer-text">Ready to serve the people of New York City</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Handle endorsement form submission
+        document.getElementById('endorsementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const organization = document.getElementById('organization').value;
+            const occupation = document.getElementById('occupation').value;
+
+            // Build title details
+            let titleDetails = '';
+            if (occupation && organization) {
+                titleDetails = `${occupation}, ${organization}`;
+            } else if (occupation) {
+                titleDetails = occupation;
+            } else if (organization) {
+                titleDetails = organization;
+            }
+
+            // Create new endorsement card
+            const endorsementCard = document.createElement('div');
+            endorsementCard.className = 'endorsement-card';
+            endorsementCard.innerHTML = `
+                <div class="endorsement-content">
+                    <h3 class="endorser-name">${name}</h3>
+                    ${titleDetails ? `<p class="endorser-title">${titleDetails}</p>` : ''}
+                </div>
+            `;
+
+            // Add to endorsements grid
+            document.getElementById('endorsementsList').appendChild(endorsementCard);
+
+            // Reset form
+            this.reset();
+
+            // Show success message
+            alert('Thank you for your endorsement!');
+        });
+    </script>
 </body>
 </html>
