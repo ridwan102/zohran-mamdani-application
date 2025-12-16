@@ -92,8 +92,15 @@ document.getElementById('endorsementForm').addEventListener('submit', async func
         // Reset form
         this.reset();
 
-        // Show success message
-        alert('Thank you for your endorsement! Tweet #ZohranHireRidwan @ZohranKMamdani to spread the word.');
+        // Show success message and prompt to tweet
+        const shouldTweet = confirm('Thank you for your endorsement! Tweet your support to Zohran Mamdani!');
+
+        if (shouldTweet) {
+            // Pre-filled tweet text
+            const tweetText = encodeURIComponent('@ZohranKMamdani hire Ridwan Alam for the transition team! #ZohranHireRidwan\n\nZohranHireRidwan.com');
+            // Open Twitter with pre-filled tweet
+            window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, '_blank');
+        }
     } catch (error) {
         console.error('Error submitting endorsement:', error);
         alert('There was an error submitting your endorsement. Please try again.');
