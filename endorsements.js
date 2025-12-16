@@ -93,7 +93,7 @@ document.getElementById('endorsementForm').addEventListener('submit', async func
         this.reset();
 
         // Show success message
-        alert('Thank you for your endorsement!');
+        alert('Thank you for your endorsement! Tweet #ZohranHireRidwan @ZohranKMamdani to spread the word.');
     } catch (error) {
         console.error('Error submitting endorsement:', error);
         alert('There was an error submitting your endorsement. Please try again.');
