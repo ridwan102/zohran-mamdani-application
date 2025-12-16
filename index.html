@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transition Team Application - Zohran Hire Ridwan</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Supabase Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <!-- Header -->
@@ -236,25 +238,7 @@
         <div class="container">
             <h2 class="section-title">Endorsements</h2>
             <div class="endorsements-grid" id="endorsementsList">
-                <!-- Sample endorsements - replace with real ones -->
-                <div class="endorsement-card">
-                    <div class="endorsement-content">
-                        <h3 class="endorser-name">Sample Name</h3>
-                        <p class="endorser-title">Title, Organization</p>
-                    </div>
-                </div>
-                <div class="endorsement-card">
-                    <div class="endorsement-content">
-                        <h3 class="endorser-name">Another Endorser</h3>
-                        <p class="endorser-title">Position, Company</p>
-                    </div>
-                </div>
-                <div class="endorsement-card">
-                    <div class="endorsement-content">
-                        <h3 class="endorser-name">Third Endorser</h3>
-                        <p class="endorser-title">Role, Institution</p>
-                    </div>
-                </div>
+                <!-- Endorsements will be loaded from Supabase -->
             </div>
 
             <!-- Endorsement Form -->
@@ -338,45 +322,7 @@
         </div>
     </footer>
 
-    <script>
-        // Handle endorsement form submission
-        document.getElementById('endorsementForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Get form values
-            const name = document.getElementById('name').value;
-            const organization = document.getElementById('organization').value;
-            const occupation = document.getElementById('occupation').value;
-
-            // Build title details
-            let titleDetails = '';
-            if (occupation && organization) {
-                titleDetails = `${occupation}, ${organization}`;
-            } else if (occupation) {
-                titleDetails = occupation;
-            } else if (organization) {
-                titleDetails = organization;
-            }
-
-            // Create new endorsement card
-            const endorsementCard = document.createElement('div');
-            endorsementCard.className = 'endorsement-card';
-            endorsementCard.innerHTML = `
-                <div class="endorsement-content">
-                    <h3 class="endorser-name">${name}</h3>
-                    ${titleDetails ? `<p class="endorser-title">${titleDetails}</p>` : ''}
-                </div>
-            `;
-
-            // Add to endorsements grid
-            document.getElementById('endorsementsList').appendChild(endorsementCard);
-
-            // Reset form
-            this.reset();
-
-            // Show success message
-            alert('Thank you for your endorsement!');
-        });
-    </script>
+    <!-- Endorsements JavaScript with Supabase -->
+    <script src="endorsements.js"></script>
 </body>
 </html>
