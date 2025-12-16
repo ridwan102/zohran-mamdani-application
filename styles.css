@@ -487,20 +487,51 @@ section {
 
 .contact-info {
     background-color: var(--light-bg);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 12px;
     margin-bottom: 2rem;
-    text-align: left;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.rem; */
 }
 
 .contact-info p {
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
+    font-size: 1.15rem;
+    margin-bottom: 0;
+    color: var(--primary-color);
+    padding: 0.75rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-info p strong {
+    color: var(--primary-color);
+    font-weight: 700;
+    display: inline-block;
+    min-width: 100px;
+    margin-right: 0.5rem;
+}
+
+.contact-info p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-info p a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
 }
 
 .contact-info p:last-child {
     margin-bottom: 0;
+}
+
+.contact-content .cta-button {
+    display: inline-block;
+    min-width: 200px;
+    margin: 0.5rem;
 }
 
 /* Footer */
