@@ -4,13 +4,13 @@ const SUPABASE_URL = 'https://rbxzhqzrwqzlavdmnxhi.supabase.co'; // e.g., 'https
 const SUPABASE_ANON_KEY = 'sb_publishable_s8qbXbjlbFXvT30P1H3e0w_wl6GzC-r';
 
 // Initialize Supabase client
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Load endorsements on page load
 async function loadEndorsements() {
     try {
         // Fetch all endorsements, ordered by creation date
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('endorsements')
             .select('*')
             .order('created_at', { ascending: false });
@@ -74,7 +74,7 @@ document.getElementById('endorsementForm').addEventListener('submit', async func
 
     try {
         // Insert endorsement into Supabase
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('endorsements')
             .insert([
                 {
