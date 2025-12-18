@@ -21,6 +21,11 @@ async function loadEndorsements() {
         const endorsementsList = document.getElementById('endorsementsList');
         endorsementsList.innerHTML = '';
 
+        // Update endorsement count
+        const endorsementCount = document.getElementById('endorsementCount');
+        const count = data.length;
+        endorsementCount.textContent = `Total Endorsements: ${count}`;
+
         // Display each endorsement
         data.forEach(endorsement => {
             const endorsementCard = createEndorsementCard(
